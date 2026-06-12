@@ -1,0 +1,25 @@
+# .NET
+bin/
+obj/
+*.user
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+npm-debug.log*
+
+# Env / IDE
+.env
+.vs/
+.idea/
+.vscode/
+
+# LaTeX build artifacts
+docs/*.aux
+docs/*.log
+docs/*.out
+docs/*.toc
+
+# local scratch (do not submit)
+.trash/

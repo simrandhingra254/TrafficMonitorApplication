@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend:
+    name: Backend (.NET)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore
+        run: dotnet restore backend/FlowSight.sln
+      - name: Build
+        run: dotnet build backend/FlowSight.sln --configuration Release --no-restore
+      - name: Test
+        run: dotnet test backend/FlowSight.sln --configuration Release --no-build --verbosity normal
+
+  frontend:
+    name: Frontend (Angular)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend/flowsight-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: frontend/flowsight-web/package-lock.json
+      - name: Install
+        run: npm ci || npm install
+      - name: Unit tests
+        run: npm run test
+      - name: Production build
+        run: npm run build
