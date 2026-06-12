@@ -49,6 +49,7 @@
           "options": {
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
             "assets": ["src/assets"],
             "styles": ["node_modules/leaflet/dist/leaflet.css", "src/styles.css"],
             "scripts": []
