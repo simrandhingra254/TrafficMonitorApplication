@@ -25,6 +25,7 @@ describe('TrafficService', () => {
   it('requests the dashboard with filter params', () => {
     const stub: DashboardResponse = {
       countryTraffic: [], vehicleDistribution: [], totalVehicles: 0,
+      trendPercent: 0, hasTrend: false,
     };
 
     service.getDashboard({ countryId: 2, from: '2026-06-01' }).subscribe((r) => {
