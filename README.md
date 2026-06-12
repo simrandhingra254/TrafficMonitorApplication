@@ -161,7 +161,7 @@ npm run test
   sufficient
 - **50 RPS** — run several stateless API replicas behind a load balancer,
   add a Redis response cache for the aggregation endpoint, tune EF Core
-  connection pooling, and use a Redis **backplane** so SignalR works across
+  connection pooling, and use a Redis backplane so SignalR works across
   replicas.
 - **500 RPS** — auto-scale API pods (Kubernetes), add PostgreSQL read
   replicas and route reads to them, serve the Angular bundle from a CDN,
